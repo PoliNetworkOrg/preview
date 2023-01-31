@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/preview/PoliNetworkOrg/TheTOLProject/branch/main/static/css/main.6a862ddc.chunk.css",
+    "main.js": "/preview/PoliNetworkOrg/TheTOLProject/branch/main/static/js/main.1f5bad79.chunk.js",
+    "main.js.map": "/preview/PoliNetworkOrg/TheTOLProject/branch/main/static/js/main.1f5bad79.chunk.js.map",
+    "runtime-main.js": "/preview/PoliNetworkOrg/TheTOLProject/branch/main/static/js/runtime-main.45264794.js",
+    "runtime-main.js.map": "/preview/PoliNetworkOrg/TheTOLProject/branch/main/static/js/runtime-main.45264794.js.map",
+    "static/js/2.72a39ad2.chunk.js": "/preview/PoliNetworkOrg/TheTOLProject/branch/main/static/js/2.72a39ad2.chunk.js",
+    "static/js/2.72a39ad2.chunk.js.map": "/preview/PoliNetworkOrg/TheTOLProject/branch/main/static/js/2.72a39ad2.chunk.js.map",
+    "index.html": "/preview/PoliNetworkOrg/TheTOLProject/branch/main/index.html",
+    "static/css/main.6a862ddc.chunk.css.map": "/preview/PoliNetworkOrg/TheTOLProject/branch/main/static/css/main.6a862ddc.chunk.css.map",
+    "static/js/2.72a39ad2.chunk.js.LICENSE.txt": "/preview/PoliNetworkOrg/TheTOLProject/branch/main/static/js/2.72a39ad2.chunk.js.LICENSE.txt",
+    "static/media/logo3000.34b8e2e9.webp": "/preview/PoliNetworkOrg/TheTOLProject/branch/main/static/media/logo3000.34b8e2e9.webp",
+    "static/media/telegram_logo.1ca7c840.svg": "/preview/PoliNetworkOrg/TheTOLProject/branch/main/static/media/telegram_logo.1ca7c840.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.45264794.js",
+    "static/js/2.72a39ad2.chunk.js",
+    "static/css/main.6a862ddc.chunk.css",
+    "static/js/main.1f5bad79.chunk.js"
+  ]
+}
