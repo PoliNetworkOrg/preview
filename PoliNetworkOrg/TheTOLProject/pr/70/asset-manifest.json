@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/preview/PoliNetworkOrg/TheTOLProject/pr/70/static/css/main.5b3526c6.chunk.css",
-    "main.js": "/preview/PoliNetworkOrg/TheTOLProject/pr/70/static/js/main.a0d66193.chunk.js",
-    "main.js.map": "/preview/PoliNetworkOrg/TheTOLProject/pr/70/static/js/main.a0d66193.chunk.js.map",
+    "main.js": "/preview/PoliNetworkOrg/TheTOLProject/pr/70/static/js/main.b6de8434.chunk.js",
+    "main.js.map": "/preview/PoliNetworkOrg/TheTOLProject/pr/70/static/js/main.b6de8434.chunk.js.map",
     "runtime-main.js": "/preview/PoliNetworkOrg/TheTOLProject/pr/70/static/js/runtime-main.f2d27a2a.js",
     "runtime-main.js.map": "/preview/PoliNetworkOrg/TheTOLProject/pr/70/static/js/runtime-main.f2d27a2a.js.map",
     "static/js/2.89c809d1.chunk.js": "/preview/PoliNetworkOrg/TheTOLProject/pr/70/static/js/2.89c809d1.chunk.js",
@@ -20,6 +20,6 @@
     "static/js/runtime-main.f2d27a2a.js",
     "static/js/2.89c809d1.chunk.js",
     "static/css/main.5b3526c6.chunk.css",
-    "static/js/main.a0d66193.chunk.js"
+    "static/js/main.b6de8434.chunk.js"
   ]
 }
