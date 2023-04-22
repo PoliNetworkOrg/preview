@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/preview/PoliNetworkOrg/TheTOLProject/pr/78/static/css/main.5b3526c6.chunk.css",
+    "main.js": "/preview/PoliNetworkOrg/TheTOLProject/pr/78/static/js/main.c7f9a513.chunk.js",
+    "main.js.map": "/preview/PoliNetworkOrg/TheTOLProject/pr/78/static/js/main.c7f9a513.chunk.js.map",
+    "runtime-main.js": "/preview/PoliNetworkOrg/TheTOLProject/pr/78/static/js/runtime-main.0231e6f9.js",
+    "runtime-main.js.map": "/preview/PoliNetworkOrg/TheTOLProject/pr/78/static/js/runtime-main.0231e6f9.js.map",
+    "static/js/2.cff489d6.chunk.js": "/preview/PoliNetworkOrg/TheTOLProject/pr/78/static/js/2.cff489d6.chunk.js",
+    "static/js/2.cff489d6.chunk.js.map": "/preview/PoliNetworkOrg/TheTOLProject/pr/78/static/js/2.cff489d6.chunk.js.map",
+    "index.html": "/preview/PoliNetworkOrg/TheTOLProject/pr/78/index.html",
+    "static/css/main.5b3526c6.chunk.css.map": "/preview/PoliNetworkOrg/TheTOLProject/pr/78/static/css/main.5b3526c6.chunk.css.map",
+    "static/js/2.cff489d6.chunk.js.LICENSE.txt": "/preview/PoliNetworkOrg/TheTOLProject/pr/78/static/js/2.cff489d6.chunk.js.LICENSE.txt",
+    "static/media/firefox_1.90eb3665.png": "/preview/PoliNetworkOrg/TheTOLProject/pr/78/static/media/firefox_1.90eb3665.png",
+    "static/media/firefox_2.b3e6c5bc.png": "/preview/PoliNetworkOrg/TheTOLProject/pr/78/static/media/firefox_2.b3e6c5bc.png",
+    "static/media/firefox_3.d2388c27.png": "/preview/PoliNetworkOrg/TheTOLProject/pr/78/static/media/firefox_3.d2388c27.png",
+    "static/media/logo3000.34b8e2e9.webp": "/preview/PoliNetworkOrg/TheTOLProject/pr/78/static/media/logo3000.34b8e2e9.webp",
+    "static/media/telegram_logo.1ca7c840.svg": "/preview/PoliNetworkOrg/TheTOLProject/pr/78/static/media/telegram_logo.1ca7c840.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0231e6f9.js",
+    "static/js/2.cff489d6.chunk.js",
+    "static/css/main.5b3526c6.chunk.css",
+    "static/js/main.c7f9a513.chunk.js"
+  ]
+}
