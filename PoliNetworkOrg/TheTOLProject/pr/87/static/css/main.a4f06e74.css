@@ -1,0 +1,2 @@
+@media{.page-break,.print-only{display:none}}@media print{@page{size:A4;margin:20mm!important}body,html{height:auto!important;overflow:visible!important;overflow:initial!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.page-break{margin-top:1rem;page-break-before:always!important}.page-break,.print-only{display:block}.print-only li,div{page-break-inside:avoid}div{-webkit-column-break-inside:avoid;break-inside:avoid}.do-not-print{display:none!important}}
+/*# sourceMappingURL=main.a4f06e74.css.map*/
