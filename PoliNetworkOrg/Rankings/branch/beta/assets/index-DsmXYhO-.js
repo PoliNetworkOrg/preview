@@ -1,0 +1,1 @@
+import{c as i,N as c,j as n,X as m}from"./index-EgrkBakK.js";const a=s=>{const o=i.c(3),{error:r}=s;if(r instanceof c){let t;return o[0]===Symbol.for("react.memo_cache_sentinel")?(t=n.jsx("p",{children:"Ranking not found"}),o[0]=t):t=o[0],t}let e;return o[1]!==r?(e=n.jsx(m,{error:r}),o[1]=r,o[2]=e):e=o[2],e};export{a as errorComponent};
