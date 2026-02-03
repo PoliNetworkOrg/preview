@@ -1,0 +1,1 @@
+import{c as i,aq as a,j as n,ar as c}from"./index-Bif4bIZB.js";const p=s=>{const r=i.c(3),{error:o}=s;if(o instanceof a){let t;return r[0]===Symbol.for("react.memo_cache_sentinel")?(t=n.jsx("p",{children:"Ranking not found"}),r[0]=t):t=r[0],t}let e;return r[1]!==o?(e=n.jsx(c,{error:o}),r[1]=o,r[2]=e):e=r[2],e};export{p as errorComponent};
