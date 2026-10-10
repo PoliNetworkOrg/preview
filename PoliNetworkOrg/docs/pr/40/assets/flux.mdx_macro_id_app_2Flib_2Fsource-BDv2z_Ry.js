@@ -11,7 +11,7 @@ Ours is installed by Ansible through the
 [polinetwork-cd](https://github.com/polinetworkorg/polinetwork-cd), starting
 from the \`clusters/k3s\` folder.
 
-<Callout type="info">
+<Callout type="important">
 
 Merging to \`main\` in polinetwork-cd **is** deploying to production.
 Never \`kubectl apply\` or \`kubectl edit\` a resource that Flux manages: Flux reverts
@@ -131,7 +131,7 @@ kubectl annotate --overwrite kustomization <app> -n flux-system \\
   reconcile.fluxcd.io/requestedAt="$(date +%s)"
 \`\`\`
 
-<Callout type="idea" title="Suspending an app">
+<Callout type="tip" title="Suspending an app">
 
 To stop Flux from touching an app while you debug it by hand, **suspend** its
 Kustomization from the Web UI. Remember to **resume** it afterwards: a suspended
@@ -180,7 +180,7 @@ ArgoCD instance we had on AKS.`]}),`
 `,(0,n.jsx)(t.strong,{children:(0,n.jsx)(t.code,{children:`main`})}),` branch of
 `,(0,n.jsx)(t.a,{href:`https://github.com/polinetworkorg/polinetwork-cd`,children:`polinetwork-cd`}),`, starting
 from the `,(0,n.jsx)(t.code,{children:`clusters/k3s`}),` folder.`]}),`
-`,(0,n.jsx)(r,{type:`info`,children:(0,n.jsxs)(t.p,{children:[`Merging to `,(0,n.jsx)(t.code,{children:`main`}),` in polinetwork-cd `,(0,n.jsx)(t.strong,{children:`is`}),` deploying to production.
+`,(0,n.jsx)(r,{type:`important`,children:(0,n.jsxs)(t.p,{children:[`Merging to `,(0,n.jsx)(t.code,{children:`main`}),` in polinetwork-cd `,(0,n.jsx)(t.strong,{children:`is`}),` deploying to production.
 Never `,(0,n.jsx)(t.code,{children:`kubectl apply`}),` or `,(0,n.jsx)(t.code,{children:`kubectl edit`}),` a resource that Flux manages: Flux reverts
 it at the next reconciliation.`]})}),`
 `,(0,n.jsx)(t.h2,{id:`repository-layout`,children:`Repository layout`}),`
@@ -262,7 +262,7 @@ Kubernetes objects:`]}),`
 `,(0,n.jsxs)(t.span,{className:`line`,children:[(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:`  reconcile.fluxcd.io/requestedAt="$(`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#6F42C1`,"--shiki-dark":`#B392F0`},children:`date`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` +%s)"`})]}),`
 `,(0,n.jsxs)(t.span,{className:`line`,children:[(0,n.jsx)(t.span,{style:{"--shiki-light":`#6F42C1`,"--shiki-dark":`#B392F0`},children:`kubectl`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` annotate`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#005CC5`,"--shiki-dark":`#79B8FF`},children:` --overwrite`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` kustomization`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#D73A49`,"--shiki-dark":`#F97583`},children:` <`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:`ap`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#24292E`,"--shiki-dark":`#E1E4E8`},children:`p`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#D73A49`,"--shiki-dark":`#F97583`},children:`>`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#005CC5`,"--shiki-dark":`#79B8FF`},children:` -n`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` flux-system`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#005CC5`,"--shiki-dark":`#79B8FF`},children:` \\`})]}),`
 `,(0,n.jsxs)(t.span,{className:`line`,children:[(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:`  reconcile.fluxcd.io/requestedAt="$(`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#6F42C1`,"--shiki-dark":`#B392F0`},children:`date`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` +%s)"`})]})]})})}),`
-`,(0,n.jsx)(r,{type:`idea`,title:`Suspending an app`,children:(0,n.jsxs)(t.p,{children:[`To stop Flux from touching an app while you debug it by hand, `,(0,n.jsx)(t.strong,{children:`suspend`}),` its
+`,(0,n.jsx)(r,{type:`tip`,title:`Suspending an app`,children:(0,n.jsxs)(t.p,{children:[`To stop Flux from touching an app while you debug it by hand, `,(0,n.jsx)(t.strong,{children:`suspend`}),` its
 Kustomization from the Web UI. Remember to `,(0,n.jsx)(t.strong,{children:`resume`}),` it afterwards: a suspended
 app also stops receiving image updates.`]})}),`
 `,(0,n.jsx)(t.h2,{id:`references`,children:`References`}),`

@@ -1,6 +1,6 @@
 import{i as e}from"./rolldown-runtime-Dd_uD5pT.js";import{t}from"./jsx-runtime-DREnUpxT.js";var n=e(t()),r={title:`Setup`},i=`If it's your first time accessing the infrastructure, you'll need to set up the tools and configure them.
 
-<Callout type="warning">
+<Callout type="caution">
 
 This tutorial assumes your account has the right permissions to access the infrastructure. If not, please contact the team.
 SSH access to the node is restricted to the **Direttivo** Entra ID group.
@@ -41,7 +41,7 @@ There is no kubeconfig to download: you SSH into the node and run \`kubectl\` th
 
 - To check if everything is working, run \`k3s kubectl get pods -n <namespace>\`. You should see a list of pods.
 
-<Callout type="idea">
+<Callout type="tip">
 
 \`pnadmin\` is in the \`k3s-admin\` group, which can read the K3s kubeconfig, so
 \`k3s kubectl\` works without \`sudo\`. Add an alias to save some typing:
@@ -63,7 +63,7 @@ polinetwork-cd repository (e.g. \`web\`, \`backend\`, \`postgres\`). Run
 
 </Callout>
 
-<Callout type="error" title="Break-glass access">
+<Callout type="danger" title="Break-glass access">
 
 If Cloudflare is down or the tunnel is broken, you can still reach the VM through
 **Azure Run Command** or the **Serial Console** in the Azure portal (VM \`k3s01\`,
@@ -111,7 +111,7 @@ ssh -L 5432:localhost:5432 pnadmin@10.43.1.4 \\
 
 Keep the command running while you use the connection, and stop it with \`Ctrl+C\`.
 
-<Callout type="idea">
+<Callout type="tip">
 
 Run \`kubectl get svc -n <namespace>\` on the node to find service names and ports.
 You can use the same template to connect to other services.
@@ -134,7 +134,7 @@ resources.`},{heading:`azure-cli`,content:`Download and install the Azure CLI.`}
 | status.polinetwork.org | Uptime Kuma status page | Public         |`,table:`table-0`},{heading:`port-forwarding`,content:`To access services running on the cluster (such as the PostgreSQL database), you
 need two hops: \`kubectl port-forward\` on the node, and an SSH tunnel from your
 machine to the node. You can do both with one command:`},{heading:`port-forwarding`,content:"For example, to reach PostgreSQL on `localhost:5432`:"},{heading:`port-forwarding`,content:"Keep the command running while you use the connection, and stop it with `Ctrl+C`."},{heading:`port-forwarding`,content:"Run `kubectl get svc -n <namespace>` on the node to find service names and ports.\nYou can use the same template to connect to other services."}],headings:[{id:`how-access-works`,content:`How access works`},{id:`cloudflare-warp--ssh`,content:`Cloudflare WARP & SSH`},{id:`azure-cli`,content:`Azure CLI`},{id:`web-dashboards`,content:`Web dashboards`},{id:`port-forwarding`,content:`Port Forwarding`}]},o=[{depth:2,url:`#how-access-works`,title:(0,n.jsx)(n.Fragment,{children:`How access works`})},{depth:2,url:`#cloudflare-warp--ssh`,title:(0,n.jsx)(n.Fragment,{children:`Cloudflare WARP & SSH`})},{depth:2,url:`#azure-cli`,title:(0,n.jsx)(n.Fragment,{children:`Azure CLI`})},{depth:2,url:`#web-dashboards`,title:(0,n.jsx)(n.Fragment,{children:`Web dashboards`})},{depth:2,url:`#port-forwarding`,title:(0,n.jsx)(n.Fragment,{children:`Port Forwarding`})}];function s(e){let t={a:`a`,code:`code`,em:`em`,h2:`h2`,li:`li`,p:`p`,pre:`pre`,span:`span`,strong:`strong`,table:`table`,tbody:`tbody`,td:`td`,th:`th`,thead:`thead`,tr:`tr`,ul:`ul`,...e.components},{Callout:r}=t;return r||l(`Callout`,!0),(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(t.p,{children:`If it's your first time accessing the infrastructure, you'll need to set up the tools and configure them.`}),`
-`,(0,n.jsx)(r,{type:`warning`,children:(0,n.jsxs)(t.p,{children:[`This tutorial assumes your account has the right permissions to access the infrastructure. If not, please contact the team.
+`,(0,n.jsx)(r,{type:`caution`,children:(0,n.jsxs)(t.p,{children:[`This tutorial assumes your account has the right permissions to access the infrastructure. If not, please contact the team.
 SSH access to the node is restricted to the `,(0,n.jsx)(t.strong,{children:`Direttivo`}),` Entra ID group.`]})}),`
 `,(0,n.jsx)(t.h2,{id:`how-access-works`,children:`How access works`}),`
 `,(0,n.jsxs)(t.p,{children:[`The K3s node `,(0,n.jsx)(t.code,{children:`k3s01`}),` has `,(0,n.jsx)(t.strong,{children:`no public IP`}),`. Its private address is `,(0,n.jsx)(t.code,{children:`10.43.1.4`}),`,
@@ -169,13 +169,13 @@ only accepts keys and Cloudflare Access certificates (no passwords, no root logi
 `,(0,n.jsxs)(t.p,{children:[`To check if everything is working, run `,(0,n.jsx)(t.code,{children:`k3s kubectl get pods -n <namespace>`}),`. You should see a list of pods.`]}),`
 `]}),`
 `]}),`
-`,(0,n.jsxs)(r,{type:`idea`,children:[(0,n.jsxs)(t.p,{children:[(0,n.jsx)(t.code,{children:`pnadmin`}),` is in the `,(0,n.jsx)(t.code,{children:`k3s-admin`}),` group, which can read the K3s kubeconfig, so
+`,(0,n.jsxs)(r,{type:`tip`,children:[(0,n.jsxs)(t.p,{children:[(0,n.jsx)(t.code,{children:`pnadmin`}),` is in the `,(0,n.jsx)(t.code,{children:`k3s-admin`}),` group, which can read the K3s kubeconfig, so
 `,(0,n.jsx)(t.code,{children:`k3s kubectl`}),` works without `,(0,n.jsx)(t.code,{children:`sudo`}),`. Add an alias to save some typing:`]}),(0,n.jsx)(n.Fragment,{children:(0,n.jsx)(t.pre,{className:`shiki shiki-themes github-light github-dark`,style:{"--shiki-light":`#24292e`,"--shiki-dark":`#e1e4e8`,"--shiki-light-bg":`#fff`,"--shiki-dark-bg":`#24292e`},tabIndex:`0`,icon:`<svg viewBox="0 0 24 24"><path d="m 4,4 a 1,1 0 0 0 -0.7070312,0.2929687 1,1 0 0 0 0,1.4140625 L 8.5859375,11 3.2929688,16.292969 a 1,1 0 0 0 0,1.414062 1,1 0 0 0 1.4140624,0 l 5.9999998,-6 a 1.0001,1.0001 0 0 0 0,-1.414062 L 4.7070312,4.2929687 A 1,1 0 0 0 4,4 Z m 8,14 a 1,1 0 0 0 -1,1 1,1 0 0 0 1,1 h 8 a 1,1 0 0 0 1,-1 1,1 0 0 0 -1,-1 z" fill="currentColor" /></svg>`,children:(0,n.jsx)(t.code,{children:(0,n.jsxs)(t.span,{className:`line`,children:[(0,n.jsx)(t.span,{style:{"--shiki-light":`#005CC5`,"--shiki-dark":`#79B8FF`},children:`echo`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` "alias kubectl='k3s kubectl'"`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#D73A49`,"--shiki-dark":`#F97583`},children:` >>`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` ~/.bashrc`})]})})})}),(0,n.jsxs)(t.p,{children:[`The rest of the docs write `,(0,n.jsx)(t.code,{children:`kubectl`}),` and assume this alias.`]})]}),`
 `,(0,n.jsx)(r,{type:`info`,children:(0,n.jsxs)(t.p,{children:[`The possible values of `,(0,n.jsx)(t.code,{children:`<namespace>`}),` match the folders in
 `,(0,n.jsx)(t.a,{href:`https://github.com/polinetworkorg/polinetwork-cd/tree/main/apps`,children:(0,n.jsx)(t.code,{children:`apps/`})}),` in the
 polinetwork-cd repository (e.g. `,(0,n.jsx)(t.code,{children:`web`}),`, `,(0,n.jsx)(t.code,{children:`backend`}),`, `,(0,n.jsx)(t.code,{children:`postgres`}),`). Run
 `,(0,n.jsx)(t.code,{children:`kubectl get namespaces`}),` to see them all.`]})}),`
-`,(0,n.jsx)(r,{type:`error`,title:`Break-glass access`,children:(0,n.jsxs)(t.p,{children:[`If Cloudflare is down or the tunnel is broken, you can still reach the VM through
+`,(0,n.jsx)(r,{type:`danger`,title:`Break-glass access`,children:(0,n.jsxs)(t.p,{children:[`If Cloudflare is down or the tunnel is broken, you can still reach the VM through
 `,(0,n.jsx)(t.strong,{children:`Azure Run Command`}),` or the `,(0,n.jsx)(t.strong,{children:`Serial Console`}),` in the Azure portal (VM `,(0,n.jsx)(t.code,{children:`k3s01`}),`,
 resource group `,(0,n.jsx)(t.code,{children:`rg-polinetwork`}),`). Use them only for emergencies.`]})}),`
 `,(0,n.jsx)(t.h2,{id:`azure-cli`,children:`Azure CLI`}),`
@@ -203,5 +203,5 @@ machine to the node. You can do both with one command:`]}),`
 `,(0,n.jsx)(n.Fragment,{children:(0,n.jsx)(t.pre,{className:`shiki shiki-themes github-light github-dark`,style:{"--shiki-light":`#24292e`,"--shiki-dark":`#e1e4e8`,"--shiki-light-bg":`#fff`,"--shiki-dark-bg":`#24292e`},tabIndex:`0`,icon:`<svg viewBox="0 0 24 24"><path d="m 4,4 a 1,1 0 0 0 -0.7070312,0.2929687 1,1 0 0 0 0,1.4140625 L 8.5859375,11 3.2929688,16.292969 a 1,1 0 0 0 0,1.414062 1,1 0 0 0 1.4140624,0 l 5.9999998,-6 a 1.0001,1.0001 0 0 0 0,-1.414062 L 4.7070312,4.2929687 A 1,1 0 0 0 4,4 Z m 8,14 a 1,1 0 0 0 -1,1 1,1 0 0 0 1,1 h 8 a 1,1 0 0 0 1,-1 1,1 0 0 0 -1,-1 z" fill="currentColor" /></svg>`,children:(0,n.jsxs)(t.code,{children:[(0,n.jsxs)(t.span,{className:`line`,children:[(0,n.jsx)(t.span,{style:{"--shiki-light":`#6F42C1`,"--shiki-dark":`#B392F0`},children:`ssh`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#005CC5`,"--shiki-dark":`#79B8FF`},children:` -L`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` 5432:localhost:5432`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` pnadmin@10.43.1.4`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#005CC5`,"--shiki-dark":`#79B8FF`},children:` \\`})]}),`
 `,(0,n.jsxs)(t.span,{className:`line`,children:[(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:`  k3s`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` kubectl`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` port-forward`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#005CC5`,"--shiki-dark":`#79B8FF`},children:` -n`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` postgres`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` svc/postgres-service`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` 5432:5432`})]})]})})}),`
 `,(0,n.jsxs)(t.p,{children:[`Keep the command running while you use the connection, and stop it with `,(0,n.jsx)(t.code,{children:`Ctrl+C`}),`.`]}),`
-`,(0,n.jsx)(r,{type:`idea`,children:(0,n.jsxs)(t.p,{children:[`Run `,(0,n.jsx)(t.code,{children:`kubectl get svc -n <namespace>`}),` on the node to find service names and ports.
+`,(0,n.jsx)(r,{type:`tip`,children:(0,n.jsxs)(t.p,{children:[`Run `,(0,n.jsx)(t.code,{children:`kubectl get svc -n <namespace>`}),` on the node to find service names and ports.
 You can use the same template to connect to other services.`]})})]})}function c(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,{...e,children:(0,n.jsx)(s,{...e})}):s(e)}function l(e,t){throw Error(`Expected `+(t?`component`:`object`)+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}export{i as _markdown,c as default,r as frontmatter,a as structuredData,o as toc};

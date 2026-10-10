@@ -2,7 +2,7 @@
 
 If it's your first time accessing the infrastructure, you'll need to set up the tools and configure them.
 
-<Callout type="warning">
+<Callout type="caution">
 
 This tutorial assumes your account has the right permissions to access the infrastructure. If not, please contact the team.
 SSH access to the node is restricted to the **Direttivo** Entra ID group.
@@ -43,7 +43,7 @@ There is no kubeconfig to download: you SSH into the node and run `kubectl` ther
 
 - To check if everything is working, run `k3s kubectl get pods -n <namespace>`. You should see a list of pods.
 
-<Callout type="idea">
+<Callout type="tip">
 
 `pnadmin` is in the `k3s-admin` group, which can read the K3s kubeconfig, so
 `k3s kubectl` works without `sudo`. Add an alias to save some typing:
@@ -65,7 +65,7 @@ polinetwork-cd repository (e.g. `web`, `backend`, `postgres`). Run
 
 </Callout>
 
-<Callout type="error" title="Break-glass access">
+<Callout type="danger" title="Break-glass access">
 
 If Cloudflare is down or the tunnel is broken, you can still reach the VM through
 **Azure Run Command** or the **Serial Console** in the Azure portal (VM `k3s01`,
@@ -113,7 +113,7 @@ ssh -L 5432:localhost:5432 pnadmin@10.43.1.4 \
 
 Keep the command running while you use the connection, and stop it with `Ctrl+C`.
 
-<Callout type="idea">
+<Callout type="tip">
 
 Run `kubectl get svc -n <namespace>` on the node to find service names and ports.
 You can use the same template to connect to other services.

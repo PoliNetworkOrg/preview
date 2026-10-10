@@ -6,7 +6,7 @@ using a declarative configuration language. This means you describe the desired
 state of the infrastructure, and Terraform takes care of creating and updating
 the resources to match that state.
 
-<Callout type="info">
+<Callout type="important">
 
 This documentation assumes you already have the Terraform CLI installed on your
 local machine. If you need help setting up Terraform, please refer to the
@@ -56,7 +56,7 @@ Terraform operates through a simple yet powerful workflow:
 2. **Plan:** Running \`terraform plan\` generates an execution plan, showing you the changes Terraform will make to achieve the desired state.
 3. **Apply:** Executing \`terraform apply\` implements the changes, creating or updating the infrastructure accordingly.
 
-<Callout type="error">
+<Callout type="danger">
 
 Running Terraform commands can modify the cloud infrastructure.
 
@@ -231,7 +231,7 @@ consistency and control.
    automatically. This workflow calculates the estimated cost impact of your
    changes and posts a report in the pull request comments, so you can review
    any potential cost implications before merging.
-   <Callout type="idea">
+   <Callout type="tip">
 
    If you want to run Infracost locally, you can install it by following the
    [official documentation](https://www.infracost.io/docs/).
@@ -258,7 +258,7 @@ Running Terraform at the repository root does nothing useful.
 
 - **\`terraform init\`**  
   Initializes the working directory containing the Terraform configuration files.
-  <Callout type="idea">
+  <Callout type="tip">
 
   This has to be run as soon as you clone the repository or when you pull changes
   that include new modules or providers. Locally, add
@@ -276,7 +276,7 @@ Running Terraform at the repository root does nothing useful.
 - **\`terraform destroy\`**  
   Destroys the resources managed by Terraform, useful for tearing down test environments or decommissioning infrastructure.
 
-  <Callout type="error">
+  <Callout type="danger">
 
   If you ever happen to be as much as tempted of using \`terraform destroy\`, you
   better be **SURE AS SHIT** about what you are doing. Never run it without
@@ -383,7 +383,7 @@ HashiCorp. It allows you to define, provision, and manage the infrastructure
 using a declarative configuration language. This means you describe the desired
 state of the infrastructure, and Terraform takes care of creating and updating
 the resources to match that state.`}),`
-`,(0,n.jsxs)(r,{type:`info`,children:[(0,n.jsxs)(t.p,{children:[`This documentation assumes you already have the Terraform CLI installed on your
+`,(0,n.jsxs)(r,{type:`important`,children:[(0,n.jsxs)(t.p,{children:[`This documentation assumes you already have the Terraform CLI installed on your
 local machine. If you need help setting up Terraform, please refer to the
 `,(0,n.jsx)(t.a,{href:`https://learn.hashicorp.com/tutorials/terraform/install-cli`,children:`official documentation`}),`.`]}),(0,n.jsxs)(t.p,{children:[`You'll also need to be logged in with the Azure CLI and have the necessary
 permissions to manage the resources in our Azure subscription (more on this
@@ -409,7 +409,7 @@ if you have to ask you probably shouldn't run `,(0,n.jsx)(t.code,{children:`appl
 `,(0,n.jsxs)(t.li,{children:[(0,n.jsx)(t.strong,{children:`Plan:`}),` Running `,(0,n.jsx)(t.code,{children:`terraform plan`}),` generates an execution plan, showing you the changes Terraform will make to achieve the desired state.`]}),`
 `,(0,n.jsxs)(t.li,{children:[(0,n.jsx)(t.strong,{children:`Apply:`}),` Executing `,(0,n.jsx)(t.code,{children:`terraform apply`}),` implements the changes, creating or updating the infrastructure accordingly.`]}),`
 `]}),`
-`,(0,n.jsxs)(r,{type:`error`,children:[(0,n.jsx)(t.p,{children:`Running Terraform commands can modify the cloud infrastructure.`}),(0,n.jsx)(t.p,{children:(0,n.jsx)(t.strong,{children:`THIS CAN INCUR COSTS OR CAUSE DOWNTIME AND PERMANENT DATA LOSS IF NOT DONE PROPERLY.`})}),(0,n.jsxs)(t.p,{children:[`Always review the execution plan (`,(0,n.jsx)(t.code,{children:`terraform plan`}),`) before applying changes.`]})]}),`
+`,(0,n.jsxs)(r,{type:`danger`,children:[(0,n.jsx)(t.p,{children:`Running Terraform commands can modify the cloud infrastructure.`}),(0,n.jsx)(t.p,{children:(0,n.jsx)(t.strong,{children:`THIS CAN INCUR COSTS OR CAUSE DOWNTIME AND PERMANENT DATA LOSS IF NOT DONE PROPERLY.`})}),(0,n.jsxs)(t.p,{children:[`Always review the execution plan (`,(0,n.jsx)(t.code,{children:`terraform plan`}),`) before applying changes.`]})]}),`
 `,(0,n.jsx)(t.h3,{id:`terraform-code-vs-terraform-state-vs-azure-state`,children:`Terraform Code vs. Terraform State vs. Azure State`}),`
 `,(0,n.jsxs)(t.ul,{children:[`
 `,(0,n.jsxs)(t.li,{children:[`
@@ -546,7 +546,7 @@ and posts one comment per root with the plan. Pull requests never apply.`]}),`
 automatically. This workflow calculates the estimated cost impact of your
 changes and posts a report in the pull request comments, so you can review
 any potential cost implications before merging.`]}),`
-`,(0,n.jsx)(r,{type:`idea`,children:(0,n.jsxs)(t.p,{children:[`If you want to run Infracost locally, you can install it by following the
+`,(0,n.jsx)(r,{type:`tip`,children:(0,n.jsxs)(t.p,{children:[`If you want to run Infracost locally, you can install it by following the
 `,(0,n.jsx)(t.a,{href:`https://www.infracost.io/docs/`,children:`official documentation`}),`.`]})}),`
 `]}),`
 `,(0,n.jsxs)(t.li,{children:[`
@@ -572,7 +572,7 @@ Running Terraform at the repository root does nothing useful.`]}),`
 `,(0,n.jsxs)(t.li,{children:[`
 `,(0,n.jsxs)(t.p,{children:[(0,n.jsx)(t.strong,{children:(0,n.jsx)(t.code,{children:`terraform init`})}),(0,n.jsx)(t.br,{}),`
 `,`Initializes the working directory containing the Terraform configuration files.`]}),`
-`,(0,n.jsx)(r,{type:`idea`,children:(0,n.jsxs)(t.p,{children:[`This has to be run as soon as you clone the repository or when you pull changes
+`,(0,n.jsx)(r,{type:`tip`,children:(0,n.jsxs)(t.p,{children:[`This has to be run as soon as you clone the repository or when you pull changes
 that include new modules or providers. Locally, add
 `,(0,n.jsx)(t.code,{children:`-backend-config=use_oidc=false`}),` (OIDC is only for GitHub Actions).`]})}),`
 `]}),`
@@ -588,7 +588,7 @@ In practice the Terraform workflow does this for you after the `,(0,n.jsx)(t.cod
 `,(0,n.jsxs)(t.li,{children:[`
 `,(0,n.jsxs)(t.p,{children:[(0,n.jsx)(t.strong,{children:(0,n.jsx)(t.code,{children:`terraform destroy`})}),(0,n.jsx)(t.br,{}),`
 `,`Destroys the resources managed by Terraform, useful for tearing down test environments or decommissioning infrastructure.`]}),`
-`,(0,n.jsxs)(r,{type:`error`,children:[(0,n.jsxs)(t.p,{children:[`If you ever happen to be as much as tempted of using `,(0,n.jsx)(t.code,{children:`terraform destroy`}),`, you
+`,(0,n.jsxs)(r,{type:`danger`,children:[(0,n.jsxs)(t.p,{children:[`If you ever happen to be as much as tempted of using `,(0,n.jsx)(t.code,{children:`terraform destroy`}),`, you
 better be `,(0,n.jsx)(t.strong,{children:`SURE AS SHIT`}),` about what you are doing. Never run it without
 `,(0,n.jsx)(t.code,{children:`-chdir`}),`, and remember the K3s data disks have `,(0,n.jsx)(t.code,{children:`prevent_destroy`}),` for a reason. Make sure to review the
 implications thoroughly before proceeding.`]}),(0,n.jsxs)(t.blockquote,{children:[`

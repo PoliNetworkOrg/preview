@@ -15,7 +15,7 @@ We have two Key Vaults, one per trust boundary:
 ESO reads Key Vault through workload identity federation: no Azure password or
 key is stored in the cluster.
 
-<Callout type="idea">
+<Callout type="tip">
 
 Whenever there is \`<something>\` in the code or in a command, that's a parameter you need to set.
 
@@ -36,7 +36,7 @@ All the YAML lives in the app folder \`apps/<namespace>/\` of
 
 See [this section](#add-or-update-a-secret).
 
-<Callout type="info" title="Naming convention">
+<Callout type="important" title="Naming convention">
 
 Prefix the Key Vault secret name with the app that owns it, e.g. \`backend-encryption-key\`.
 Key Vault names allow only letters, digits and hyphens.
@@ -113,7 +113,7 @@ spec:
 Skip this and the \`ExternalSecret\` stays \`NotReady\` with an error saying the
 store doesn't allow the namespace.
 
-<Callout type="error">
+<Callout type="danger">
 
 Don't add app namespaces to \`kv-pn-infra\`. It holds the secrets that run the
 platform itself.
@@ -224,7 +224,7 @@ You can add (or update) a secret with the following command:
 az keyvault secret set --vault-name "kv-pn-apps" --name "<secret-name>" --value "<secret-value>"
 \`\`\`
 
-<Callout type="idea">
+<Callout type="tip">
 
 If the secret value is too long or you don't want to copy/paste in terminal (and
 leave it in your shell history) you can use a file instead.
@@ -265,7 +265,7 @@ you recover it.
 
 </Callout>
 
-<Callout type="info">
+<Callout type="note">
 
 To **update/re-set** that secret, during the 90 days retention period, you must recover it first,
 then run the command to update it
@@ -376,7 +376,7 @@ cluster, copies them into regular Kubernetes `,(0,n.jsx)(t.code,{children:`Secre
 `,(0,n.jsxs)(t.table,{children:[(0,n.jsx)(t.thead,{children:(0,n.jsxs)(t.tr,{children:[(0,n.jsx)(t.th,{children:`Key Vault`}),(0,n.jsx)(t.th,{children:(0,n.jsx)(t.code,{children:`ClusterSecretStore`})}),(0,n.jsx)(t.th,{children:`Contains`}),(0,n.jsx)(t.th,{children:`Namespaces allowed to read it`})]})}),(0,n.jsxs)(t.tbody,{children:[(0,n.jsxs)(t.tr,{children:[(0,n.jsx)(t.td,{children:(0,n.jsx)(t.code,{children:`kv-pn-apps`})}),(0,n.jsx)(t.td,{children:(0,n.jsx)(t.code,{children:`kv-pn-apps`})}),(0,n.jsx)(t.td,{children:`Application secrets (DB passwords, API keys, OAuth clients, ...)`}),(0,n.jsx)(t.td,{children:`The app namespaces listed in the store`})]}),(0,n.jsxs)(t.tr,{children:[(0,n.jsx)(t.td,{children:(0,n.jsx)(t.code,{children:`kv-pn-infra`})}),(0,n.jsx)(t.td,{children:(0,n.jsx)(t.code,{children:`kv-pn-infra`})}),(0,n.jsx)(t.td,{children:`Platform secrets (tunnel token, Flux webhook token, backup key, ...)`}),(0,n.jsxs)(t.td,{children:[(0,n.jsx)(t.code,{children:`cloudflared`}),`, `,(0,n.jsx)(t.code,{children:`flux-system`})]})]})]})]}),`
 `,(0,n.jsx)(t.p,{children:`ESO reads Key Vault through workload identity federation: no Azure password or
 key is stored in the cluster.`}),`
-`,(0,n.jsx)(r,{type:`idea`,children:(0,n.jsxs)(t.p,{children:[`Whenever there is `,(0,n.jsx)(t.code,{children:`<something>`}),` in the code or in a command, that's a parameter you need to set.`]})}),`
+`,(0,n.jsx)(r,{type:`tip`,children:(0,n.jsxs)(t.p,{children:[`Whenever there is `,(0,n.jsx)(t.code,{children:`<something>`}),` in the code or in a command, that's a parameter you need to set.`]})}),`
 `,(0,n.jsx)(t.h2,{id:`basics`,children:`Basics`}),`
 `,(0,n.jsx)(t.p,{children:`There are three required steps:`}),`
 `,(0,n.jsxs)(t.ol,{children:[`
@@ -388,7 +388,7 @@ key is stored in the cluster.`}),`
 `,(0,n.jsx)(t.a,{href:`https://github.com/polinetworkorg/polinetwork-cd`,children:`polinetwork-cd`}),`.`]}),`
 `,(0,n.jsx)(t.h3,{id:`add-the-secret-into-the-key-vault`,children:`Add the secret into the Key Vault`}),`
 `,(0,n.jsxs)(t.p,{children:[`See `,(0,n.jsx)(t.a,{href:`#add-or-update-a-secret`,children:`this section`}),`.`]}),`
-`,(0,n.jsx)(r,{type:`info`,title:`Naming convention`,children:(0,n.jsxs)(t.p,{children:[`Prefix the Key Vault secret name with the app that owns it, e.g. `,(0,n.jsx)(t.code,{children:`backend-encryption-key`}),`.
+`,(0,n.jsx)(r,{type:`important`,title:`Naming convention`,children:(0,n.jsxs)(t.p,{children:[`Prefix the Key Vault secret name with the app that owns it, e.g. `,(0,n.jsx)(t.code,{children:`backend-encryption-key`}),`.
 Key Vault names allow only letters, digits and hyphens.`]})}),`
 `,(0,n.jsxs)(t.h3,{id:`declare-the-externalsecret`,children:[`Declare the `,(0,n.jsx)(t.code,{children:`ExternalSecret`})]}),`
 `,(0,n.jsxs)(t.p,{children:[`Check if the app folder already contains an `,(0,n.jsx)(t.code,{children:`external-secret.yaml`}),`. If it does,
@@ -436,7 +436,7 @@ If your app is new, add its namespace to the `,(0,n.jsx)(t.code,{children:`kv-pn
 `,(0,n.jsx)(t.span,{className:`line`,children:(0,n.jsx)(t.span,{style:{"--shiki-light":`#005CC5`,"--shiki-dark":`#79B8FF`},children:`        ...`})})]})})}),`
 `,(0,n.jsxs)(t.p,{children:[`Skip this and the `,(0,n.jsx)(t.code,{children:`ExternalSecret`}),` stays `,(0,n.jsx)(t.code,{children:`NotReady`}),` with an error saying the
 store doesn't allow the namespace.`]}),`
-`,(0,n.jsx)(r,{type:`error`,children:(0,n.jsxs)(t.p,{children:[`Don't add app namespaces to `,(0,n.jsx)(t.code,{children:`kv-pn-infra`}),`. It holds the secrets that run the
+`,(0,n.jsx)(r,{type:`danger`,children:(0,n.jsxs)(t.p,{children:[`Don't add app namespaces to `,(0,n.jsx)(t.code,{children:`kv-pn-infra`}),`. It holds the secrets that run the
 platform itself.`]})}),`
 `,(0,n.jsxs)(t.h3,{id:`add-a-key-to-an-existing-externalsecret`,children:[`Add a key to an existing `,(0,n.jsx)(t.code,{children:`ExternalSecret`})]}),`
 `,(0,n.jsxs)(t.p,{children:[`Append an entry under `,(0,n.jsx)(t.code,{children:`data`}),`:`]}),`
@@ -497,7 +497,7 @@ has to re-read them.)`}),`
 `,(0,n.jsx)(t.h3,{id:`add-or-update-a-secret`,children:`Add or update a secret`}),`
 `,(0,n.jsx)(t.p,{children:`You can add (or update) a secret with the following command:`}),`
 `,(0,n.jsx)(n.Fragment,{children:(0,n.jsx)(t.pre,{className:`shiki shiki-themes github-light github-dark`,style:{"--shiki-light":`#24292e`,"--shiki-dark":`#e1e4e8`,"--shiki-light-bg":`#fff`,"--shiki-dark-bg":`#24292e`},tabIndex:`0`,icon:`<svg viewBox="0 0 24 24"><path d="m 4,4 a 1,1 0 0 0 -0.7070312,0.2929687 1,1 0 0 0 0,1.4140625 L 8.5859375,11 3.2929688,16.292969 a 1,1 0 0 0 0,1.414062 1,1 0 0 0 1.4140624,0 l 5.9999998,-6 a 1.0001,1.0001 0 0 0 0,-1.414062 L 4.7070312,4.2929687 A 1,1 0 0 0 4,4 Z m 8,14 a 1,1 0 0 0 -1,1 1,1 0 0 0 1,1 h 8 a 1,1 0 0 0 1,-1 1,1 0 0 0 -1,-1 z" fill="currentColor" /></svg>`,children:(0,n.jsx)(t.code,{children:(0,n.jsxs)(t.span,{className:`line`,children:[(0,n.jsx)(t.span,{style:{"--shiki-light":`#6F42C1`,"--shiki-dark":`#B392F0`},children:`az`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` keyvault`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` secret`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` set`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#005CC5`,"--shiki-dark":`#79B8FF`},children:` --vault-name`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` "kv-pn-apps"`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#005CC5`,"--shiki-dark":`#79B8FF`},children:` --name`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` "<secret-name>"`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#005CC5`,"--shiki-dark":`#79B8FF`},children:` --value`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` "<secret-value>"`})]})})})}),`
-`,(0,n.jsxs)(r,{type:`idea`,children:[(0,n.jsx)(t.p,{children:`If the secret value is too long or you don't want to copy/paste in terminal (and
+`,(0,n.jsxs)(r,{type:`tip`,children:[(0,n.jsx)(t.p,{children:`If the secret value is too long or you don't want to copy/paste in terminal (and
 leave it in your shell history) you can use a file instead.`}),(0,n.jsxs)(t.ol,{children:[`
 `,(0,n.jsxs)(t.li,{children:[`
 `,(0,n.jsxs)(t.p,{children:[`Paste the secret value into a text file (no extension or ".txt" is valid) on a `,(0,n.jsx)(t.strong,{children:`single line`})]}),`
@@ -520,7 +520,7 @@ leave it in your shell history) you can use a file instead.`}),(0,n.jsxs)(t.ol,{
 `,(0,n.jsx)(r,{type:`warning`,children:(0,n.jsxs)(t.p,{children:[`Both vaults have `,(0,n.jsx)(t.strong,{children:`purge protection`}),` enabled: a deleted secret can't be purged
 before its 90 days are over, and its name can't be reused in the meantime unless
 you recover it.`]})}),`
-`,(0,n.jsxs)(r,{type:`info`,children:[(0,n.jsxs)(t.p,{children:[`To `,(0,n.jsx)(t.strong,{children:`update/re-set`}),` that secret, during the 90 days retention period, you must recover it first,
+`,(0,n.jsxs)(r,{type:`note`,children:[(0,n.jsxs)(t.p,{children:[`To `,(0,n.jsx)(t.strong,{children:`update/re-set`}),` that secret, during the 90 days retention period, you must recover it first,
 then run the command to update it`]}),(0,n.jsxs)(t.p,{children:[`If you try to `,(0,n.jsx)(t.code,{children:`set`}),` a secret that has been deleted within the last 90 days without restoring it first, you get the following error:`]}),(0,n.jsx)(n.Fragment,{children:(0,n.jsx)(t.pre,{className:`shiki shiki-themes github-light github-dark has-highlighted`,style:{"--shiki-light":`#24292e`,"--shiki-dark":`#e1e4e8`,"--shiki-light-bg":`#fff`,"--shiki-dark-bg":`#24292e`},tabIndex:`0`,icon:`<svg viewBox="0 0 24 24"><path d="m 4,4 a 1,1 0 0 0 -0.7070312,0.2929687 1,1 0 0 0 0,1.4140625 L 8.5859375,11 3.2929688,16.292969 a 1,1 0 0 0 0,1.414062 1,1 0 0 0 1.4140624,0 l 5.9999998,-6 a 1.0001,1.0001 0 0 0 0,-1.414062 L 4.7070312,4.2929687 A 1,1 0 0 0 4,4 Z m 8,14 a 1,1 0 0 0 -1,1 1,1 0 0 0 1,1 h 8 a 1,1 0 0 0 1,-1 1,1 0 0 0 -1,-1 z" fill="currentColor" /></svg>`,children:(0,n.jsxs)(t.code,{children:[(0,n.jsxs)(t.span,{className:`line highlighted error`,children:[(0,n.jsx)(t.span,{style:{"--shiki-light":`#24292E`,"--shiki-dark":`#E1E4E8`},children:`(`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#6F42C1`,"--shiki-dark":`#B392F0`},children:`Conflict`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#24292E`,"--shiki-dark":`#E1E4E8`},children:`) `}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#6F42C1`,"--shiki-dark":`#B392F0`},children:`Secret`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#D73A49`,"--shiki-dark":`#F97583`},children:` <`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:`secret-nam`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#24292E`,"--shiki-dark":`#E1E4E8`},children:`e`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#D73A49`,"--shiki-dark":`#F97583`},children:`>`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` is`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` currently`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` in`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` a`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` deleted`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` but`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` recoverable`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` state,`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` and`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` its`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` name`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` cannot`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` be`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` reused`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#24292E`,"--shiki-dark":`#E1E4E8`},children:`; in this state, the secret can only be recovered or purged.`})]}),`
 `,(0,n.jsxs)(t.span,{className:`line highlighted error`,children:[(0,n.jsx)(t.span,{style:{"--shiki-light":`#6F42C1`,"--shiki-dark":`#B392F0`},children:`Code:`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` Conflict`})]}),`
 `,(0,n.jsxs)(t.span,{className:`line highlighted error`,children:[(0,n.jsx)(t.span,{style:{"--shiki-light":`#6F42C1`,"--shiki-dark":`#B392F0`},children:`Message:`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` Secret`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#D73A49`,"--shiki-dark":`#F97583`},children:` <`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:`secret-nam`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#24292E`,"--shiki-dark":`#E1E4E8`},children:`e`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#D73A49`,"--shiki-dark":`#F97583`},children:`>`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` is`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` currently`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` in`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` a`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` deleted`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` but`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` recoverable`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` state,`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` and`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` its`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` name`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` cannot`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` be`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` reused`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#24292E`,"--shiki-dark":`#E1E4E8`},children:`; in this state, the secret can only be recovered or purged.`})]}),`

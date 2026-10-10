@@ -13,7 +13,7 @@ There are two storage classes, one per data disk:
 | \`fast\` | Premium SSD v2, 64 GB | \`/srv/fast/volumes/<namespace>/<pvc>/\` | Latency-sensitive databases (today: PostgreSQL and the Redis instances) |
 | \`standard\` (default) | Standard SSD, 128 GB | \`/srv/standard/volumes/<namespace>/<pvc>/\` | Everything else (today: InfluxDB, Prometheus, Grafana, Uptime Kuma) |
 
-<Callout type="info">
+<Callout type="important">
 
 - **The size is not enforced.** \`storage: 4Gi\` in a PVC is a label, not a quota: a volume can
   grow until the whole disk is full, and then every app on that disk breaks.
@@ -102,7 +102,7 @@ Parameters:
 The volume is created when the first pod using it is scheduled, so the PVC stays
 \`Pending\` until then: that's expected.
 
-<Callout type="idea" title="File permissions">
+<Callout type="tip" title="File permissions">
 
 local-path directories are owned by \`root\`. If your container runs as a non-root
 user, set \`securityContext.fsGroup\` on the pod to the user's group (see \`apps/redis\`
@@ -125,7 +125,7 @@ Since a volume is just a directory, you can look at it from the node:
 sudo ls -la /srv/<fast|standard>/volumes/<namespace>/<name>-pvc/
 \`\`\`
 
-<Callout type="error">
+<Callout type="danger">
 
 Don't edit files of a running database from the node. Stop the app first, or go
 through the app itself.
@@ -148,7 +148,7 @@ through the app itself.`}],headings:[{id:`core-concepts`,content:`Core Concepts`
 We replaced Longhorn and the Azure Managed Disk volumes we used on AKS with it.`]}),`
 `,(0,n.jsx)(t.p,{children:`There are two storage classes, one per data disk:`}),`
 `,(0,n.jsxs)(t.table,{children:[(0,n.jsx)(t.thead,{children:(0,n.jsxs)(t.tr,{children:[(0,n.jsx)(t.th,{children:`Storage class`}),(0,n.jsx)(t.th,{children:`Disk`}),(0,n.jsx)(t.th,{children:`Path on the node`}),(0,n.jsx)(t.th,{children:`Use it for`})]})}),(0,n.jsxs)(t.tbody,{children:[(0,n.jsxs)(t.tr,{children:[(0,n.jsx)(t.td,{children:(0,n.jsx)(t.code,{children:`fast`})}),(0,n.jsx)(t.td,{children:`Premium SSD v2, 64 GB`}),(0,n.jsx)(t.td,{children:(0,n.jsx)(t.code,{children:`/srv/fast/volumes/<namespace>/<pvc>/`})}),(0,n.jsx)(t.td,{children:`Latency-sensitive databases (today: PostgreSQL and the Redis instances)`})]}),(0,n.jsxs)(t.tr,{children:[(0,n.jsxs)(t.td,{children:[(0,n.jsx)(t.code,{children:`standard`}),` (default)`]}),(0,n.jsx)(t.td,{children:`Standard SSD, 128 GB`}),(0,n.jsx)(t.td,{children:(0,n.jsx)(t.code,{children:`/srv/standard/volumes/<namespace>/<pvc>/`})}),(0,n.jsx)(t.td,{children:`Everything else (today: InfluxDB, Prometheus, Grafana, Uptime Kuma)`})]})]})]}),`
-`,(0,n.jsx)(r,{type:`info`,children:(0,n.jsxs)(t.ul,{children:[`
+`,(0,n.jsx)(r,{type:`important`,children:(0,n.jsxs)(t.ul,{children:[`
 `,(0,n.jsxs)(t.li,{children:[(0,n.jsx)(t.strong,{children:`The size is not enforced.`}),` `,(0,n.jsx)(t.code,{children:`storage: 4Gi`}),` in a PVC is a label, not a quota: a volume can
 grow until the whole disk is full, and then every app on that disk breaks.
 Check the free space first, and keep an eye on the `,(0,n.jsx)(t.code,{children:`PersistentVolumeHigh`}),` and
@@ -218,7 +218,7 @@ PVC if it disappears from Git (e.g. a bad refactor). CI rejects PVCs without it.
 `]})}),`
 `,(0,n.jsxs)(t.p,{children:[`The volume is created when the first pod using it is scheduled, so the PVC stays
 `,(0,n.jsx)(t.code,{children:`Pending`}),` until then: that's expected.`]}),`
-`,(0,n.jsx)(r,{type:`idea`,title:`File permissions`,children:(0,n.jsxs)(t.p,{children:[`local-path directories are owned by `,(0,n.jsx)(t.code,{children:`root`}),`. If your container runs as a non-root
+`,(0,n.jsx)(r,{type:`tip`,title:`File permissions`,children:(0,n.jsxs)(t.p,{children:[`local-path directories are owned by `,(0,n.jsx)(t.code,{children:`root`}),`. If your container runs as a non-root
 user, set `,(0,n.jsx)(t.code,{children:`securityContext.fsGroup`}),` on the pod to the user's group (see `,(0,n.jsx)(t.code,{children:`apps/redis`}),`
 for an example).`]})}),`
 `,(0,n.jsx)(t.h2,{id:`back-it-up`,children:`Back it up`}),`
@@ -229,5 +229,5 @@ holds data we can't afford to lose, add it to the backup script: see
 `,(0,n.jsx)(t.h2,{id:`inspecting-a-volume`,children:`Inspecting a volume`}),`
 `,(0,n.jsx)(t.p,{children:`Since a volume is just a directory, you can look at it from the node:`}),`
 `,(0,n.jsx)(n.Fragment,{children:(0,n.jsx)(t.pre,{className:`shiki shiki-themes github-light github-dark`,style:{"--shiki-light":`#24292e`,"--shiki-dark":`#e1e4e8`,"--shiki-light-bg":`#fff`,"--shiki-dark-bg":`#24292e`},tabIndex:`0`,icon:`<svg viewBox="0 0 24 24"><path d="m 4,4 a 1,1 0 0 0 -0.7070312,0.2929687 1,1 0 0 0 0,1.4140625 L 8.5859375,11 3.2929688,16.292969 a 1,1 0 0 0 0,1.414062 1,1 0 0 0 1.4140624,0 l 5.9999998,-6 a 1.0001,1.0001 0 0 0 0,-1.414062 L 4.7070312,4.2929687 A 1,1 0 0 0 4,4 Z m 8,14 a 1,1 0 0 0 -1,1 1,1 0 0 0 1,1 h 8 a 1,1 0 0 0 1,-1 1,1 0 0 0 -1,-1 z" fill="currentColor" /></svg>`,children:(0,n.jsx)(t.code,{children:(0,n.jsxs)(t.span,{className:`line`,children:[(0,n.jsx)(t.span,{style:{"--shiki-light":`#6F42C1`,"--shiki-dark":`#B392F0`},children:`sudo`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` ls`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#005CC5`,"--shiki-dark":`#79B8FF`},children:` -la`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` /srv/`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#D73A49`,"--shiki-dark":`#F97583`},children:`<`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:`fast`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#D73A49`,"--shiki-dark":`#F97583`},children:`|`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#6F42C1`,"--shiki-dark":`#B392F0`},children:`standard`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#24292E`,"--shiki-dark":`#E1E4E8`},children:`>`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:`/volumes/`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#24292E`,"--shiki-dark":`#E1E4E8`},children:`<namespace>/<name>-pvc/`})]})})})}),`
-`,(0,n.jsx)(r,{type:`error`,children:(0,n.jsx)(t.p,{children:`Don't edit files of a running database from the node. Stop the app first, or go
+`,(0,n.jsx)(r,{type:`danger`,children:(0,n.jsx)(t.p,{children:`Don't edit files of a running database from the node. Stop the app first, or go
 through the app itself.`})})]})}function c(e={}){let{wrapper:t}=e.components||{};return t?(0,n.jsx)(t,{...e,children:(0,n.jsx)(s,{...e})}):s(e)}function l(e,t){throw Error(`Expected `+(t?`component`:`object`)+" `"+e+"` to be defined: you likely forgot to import, pass, or provide it.")}export{i as _markdown,c as default,r as frontmatter,a as structuredData,o as toc};

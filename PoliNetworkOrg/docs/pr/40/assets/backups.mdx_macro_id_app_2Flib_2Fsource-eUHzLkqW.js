@@ -16,7 +16,7 @@ Each run:
    storage account, using the \`id-k3s-backup\` managed identity;
 4. publishes its success time to Prometheus.
 
-<Callout type="info" title="Encryption">
+<Callout type="important" title="Encryption">
 
 The node only has the age **public** key. The private key (the "identity") is the
 secret \`backup-age-identity\` in the \`kv-pn-infra\` Key Vault, and it must never be
@@ -69,7 +69,7 @@ Then run the playbook (see [K3s Node](/docs/infrastructure/getting-started/cloud
 
 ## Restoring [#restoring]
 
-<Callout type="error">
+<Callout type="danger">
 
 Restoring overwrites live data. Agree on it with the Direttivo first, and take a
 fresh backup right before (\`sudo systemctl start k3s-application-backup.service\`)
@@ -128,7 +128,7 @@ rm age-identity.txt
 \`restore/\` now contains \`postgres-dumpall.sql\`, \`redis.rdb\`, \`bot-ts-redis.rdb\`,
 \`influxdb-backup.tar\`, \`uptime-kuma.db\`, \`grafana.db\` and the \`*-files.tar\` archives.
 
-<Callout type="warning">
+<Callout type="caution">
 
 These files hold personal data and credentials in clear text. Delete them as soon as
 you're done.
@@ -180,7 +180,7 @@ identity trusts.`}],headings:[{id:`overview`,content:`Overview`},{id:`retention`
 storage account, using the `,(0,n.jsx)(t.code,{children:`id-k3s-backup`}),` managed identity;`]}),`
 `,(0,n.jsx)(t.li,{children:`publishes its success time to Prometheus.`}),`
 `]}),`
-`,(0,n.jsx)(r,{type:`info`,title:`Encryption`,children:(0,n.jsxs)(t.p,{children:[`The node only has the age `,(0,n.jsx)(t.strong,{children:`public`}),` key. The private key (the "identity") is the
+`,(0,n.jsx)(r,{type:`important`,title:`Encryption`,children:(0,n.jsxs)(t.p,{children:[`The node only has the age `,(0,n.jsx)(t.strong,{children:`public`}),` key. The private key (the "identity") is the
 secret `,(0,n.jsx)(t.code,{children:`backup-age-identity`}),` in the `,(0,n.jsx)(t.code,{children:`kv-pn-infra`}),` Key Vault, and it must never be
 copied to the node. Without it, the backups can't be read.`]})}),`
 `,(0,n.jsx)(t.h2,{id:`retention`,children:`Retention`}),`
@@ -213,7 +213,7 @@ the other files in the volume;`]}),`
 `,(0,n.jsxs)(t.p,{children:[`Then run the playbook (see `,(0,n.jsx)(t.a,{href:`/docs/infrastructure/getting-started/cloud-infrastructure/k3s-node#running-the-playbooks`,children:`K3s Node`}),`):
 `,(0,n.jsx)(t.code,{children:`verify.yml`}),` takes a fresh backup and checks it.`]}),`
 `,(0,n.jsx)(t.h2,{id:`restoring`,children:`Restoring`}),`
-`,(0,n.jsx)(r,{type:`error`,children:(0,n.jsxs)(t.p,{children:[`Restoring overwrites live data. Agree on it with the Direttivo first, and take a
+`,(0,n.jsx)(r,{type:`danger`,children:(0,n.jsxs)(t.p,{children:[`Restoring overwrites live data. Agree on it with the Direttivo first, and take a
 fresh backup right before (`,(0,n.jsx)(t.code,{children:`sudo systemctl start k3s-application-backup.service`}),`)
 so you can go back.`]})}),`
 `,(0,n.jsx)(t.h3,{id:`1-get-the-archive`,children:`1. Get the archive`}),`
@@ -252,7 +252,7 @@ backup identity (its client ID is `,(0,n.jsx)(t.code,{children:`backup_identity_
 `,(0,n.jsxs)(t.span,{className:`line`,children:[(0,n.jsx)(t.span,{style:{"--shiki-light":`#6F42C1`,"--shiki-dark":`#B392F0`},children:`rm`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:` age-identity.txt`})]})]})})}),`
 `,(0,n.jsxs)(t.p,{children:[(0,n.jsx)(t.code,{children:`restore/`}),` now contains `,(0,n.jsx)(t.code,{children:`postgres-dumpall.sql`}),`, `,(0,n.jsx)(t.code,{children:`redis.rdb`}),`, `,(0,n.jsx)(t.code,{children:`bot-ts-redis.rdb`}),`,
 `,(0,n.jsx)(t.code,{children:`influxdb-backup.tar`}),`, `,(0,n.jsx)(t.code,{children:`uptime-kuma.db`}),`, `,(0,n.jsx)(t.code,{children:`grafana.db`}),` and the `,(0,n.jsx)(t.code,{children:`*-files.tar`}),` archives.`]}),`
-`,(0,n.jsx)(r,{type:`warning`,children:(0,n.jsx)(t.p,{children:`These files hold personal data and credentials in clear text. Delete them as soon as
+`,(0,n.jsx)(r,{type:`caution`,children:(0,n.jsx)(t.p,{children:`These files hold personal data and credentials in clear text. Delete them as soon as
 you're done.`})}),`
 `,(0,n.jsx)(t.h3,{id:`3-restore-the-data`,children:`3. Restore the data`}),`
 `,(0,n.jsxs)(t.p,{children:[`For PostgreSQL, the dump recreates every database (`,(0,n.jsx)(t.code,{children:`--clean --if-exists`}),`), so you can

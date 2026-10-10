@@ -945,7 +945,7 @@ We have two Key Vaults, one per trust boundary:
 ESO reads Key Vault through workload identity federation: no Azure password or
 key is stored in the cluster.
 
-<Callout type="idea">
+<Callout type="tip">
 
 Whenever there is `<something>` in the code or in a command, that's a parameter you need to set.
 
@@ -966,7 +966,7 @@ All the YAML lives in the app folder `apps/<namespace>/` of
 
 See [this section](#add-or-update-a-secret).
 
-<Callout type="info" title="Naming convention">
+<Callout type="important" title="Naming convention">
 
 Prefix the Key Vault secret name with the app that owns it, e.g. `backend-encryption-key`.
 Key Vault names allow only letters, digits and hyphens.
@@ -1043,7 +1043,7 @@ spec:
 Skip this and the `ExternalSecret` stays `NotReady` with an error saying the
 store doesn't allow the namespace.
 
-<Callout type="error">
+<Callout type="danger">
 
 Don't add app namespaces to `kv-pn-infra`. It holds the secrets that run the
 platform itself.
@@ -1154,7 +1154,7 @@ You can add (or update) a secret with the following command:
 az keyvault secret set --vault-name "kv-pn-apps" --name "<secret-name>" --value "<secret-value>"
 ```
 
-<Callout type="idea">
+<Callout type="tip">
 
 If the secret value is too long or you don't want to copy/paste in terminal (and
 leave it in your shell history) you can use a file instead.
@@ -1195,7 +1195,7 @@ you recover it.
 
 </Callout>
 
-<Callout type="info">
+<Callout type="note">
 
 To **update/re-set** that secret, during the 90 days retention period, you must recover it first,
 then run the command to update it
@@ -1303,7 +1303,7 @@ There are two storage classes, one per data disk:
 | `fast` | Premium SSD v2, 64 GB | `/srv/fast/volumes/<namespace>/<pvc>/` | Latency-sensitive databases (today: PostgreSQL and the Redis instances) |
 | `standard` (default) | Standard SSD, 128 GB | `/srv/standard/volumes/<namespace>/<pvc>/` | Everything else (today: InfluxDB, Prometheus, Grafana, Uptime Kuma) |
 
-<Callout type="info">
+<Callout type="important">
 
 - **The size is not enforced.** `storage: 4Gi` in a PVC is a label, not a quota: a volume can
   grow until the whole disk is full, and then every app on that disk breaks.
@@ -1392,7 +1392,7 @@ Parameters:
 The volume is created when the first pod using it is scheduled, so the PVC stays
 `Pending` until then: that's expected.
 
-<Callout type="idea" title="File permissions">
+<Callout type="tip" title="File permissions">
 
 local-path directories are owned by `root`. If your container runs as a non-root
 user, set `securityContext.fsGroup` on the pod to the user's group (see `apps/redis`
@@ -1415,7 +1415,7 @@ Since a volume is just a directory, you can look at it from the node:
 sudo ls -la /srv/<fast|standard>/volumes/<namespace>/<name>-pvc/
 ```
 
-<Callout type="error">
+<Callout type="danger">
 
 Don't edit files of a running database from the node. Stop the app first, or go
 through the app itself.
@@ -1443,7 +1443,7 @@ Each run:
    storage account, using the `id-k3s-backup` managed identity;
 4. publishes its success time to Prometheus.
 
-<Callout type="info" title="Encryption">
+<Callout type="important" title="Encryption">
 
 The node only has the age **public** key. The private key (the "identity") is the
 secret `backup-age-identity` in the `kv-pn-infra` Key Vault, and it must never be
@@ -1496,7 +1496,7 @@ Then run the playbook (see [K3s Node](/docs/infrastructure/getting-started/cloud
 
 ## Restoring [#restoring]
 
-<Callout type="error">
+<Callout type="danger">
 
 Restoring overwrites live data. Agree on it with the Direttivo first, and take a
 fresh backup right before (`sudo systemctl start k3s-application-backup.service`)
@@ -1555,7 +1555,7 @@ rm age-identity.txt
 `restore/` now contains `postgres-dumpall.sql`, `redis.rdb`, `bot-ts-redis.rdb`,
 `influxdb-backup.tar`, `uptime-kuma.db`, `grafana.db` and the `*-files.tar` archives.
 
-<Callout type="warning">
+<Callout type="caution">
 
 These files hold personal data and credentials in clear text. Delete them as soon as
 you're done.
@@ -1598,7 +1598,7 @@ You don't deploy from your machine: you open a PR, and once it's merged into `ma
 Flux applies it.  
 Check [minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinary+download) or [K3s](https://docs.k3s.io/quick-start) to run a k8s cluster on your machine for testing purposes.
 
-<Callout type="info" title="CD">
+<Callout type="note" title="CD">
 
 To deploy our applications, we use [Flux](https://fluxcd.io/flux/) syncing the
 `clusters/k3s` folder of the `main` branch of
@@ -1617,7 +1617,7 @@ For more info, check out [Flux](/docs/infrastructure/getting-started/cloud-infra
 5. Open a PR into polinetwork-cd, wait for CI, merge
 6. Monitor the deploy on the [Flux Web UI](https://flux.polinetwork.org)
 
-<Callout type="info" title="ARM64 images">
+<Callout type="important" title="ARM64 images">
 
 The node is ARM64. An image built only for `amd64` can't run there, and the pod fails
 with `exec format error`. Build a multi-arch image (see the
@@ -1913,7 +1913,7 @@ spec:
             digest: << inputs.<app>_image.digest | quote >>
 ```
 
-<Callout type="warning" title="Input names">
+<Callout type="caution" title="Input names">
 
 The inputs are named after the provider, with hyphens turned into underscores:
 the provider `bot-ts-image` becomes `inputs.bot_ts_image`.
@@ -2001,7 +2001,7 @@ Until October 2026 we ran on AKS (Azure Kubernetes Service). K3s gives us the
 same Kubernetes API on one VM that we fully control and size ourselves, and it
 drops our dependency on AKS-specific add-ons (Azure CSI drivers, Longhorn, ArgoCD).
 
-<Callout type="info" title="Legacy AKS">
+<Callout type="note" title="Legacy AKS">
 
 The AKS cluster `aks-polinetwork` is still defined in the `environments/legacy`
 Terraform root, but no production workload runs on it anymore.
@@ -2012,7 +2012,7 @@ If you find instructions mentioning `az aks get-credentials`, ArgoCD,
 
 ## About this documentation [#about-this-documentation]
 
-<Callout type="info">
+<Callout type="important">
 
 Most of the docs explain procedures with `kubectl`, which you run on the K3s node
 over SSH, and with the Azure CLI, which you use for Key Vault secrets.
@@ -2039,7 +2039,7 @@ Ours is installed by Ansible through the
 [polinetwork-cd](https://github.com/polinetworkorg/polinetwork-cd), starting
 from the `clusters/k3s` folder.
 
-<Callout type="info">
+<Callout type="important">
 
 Merging to `main` in polinetwork-cd **is** deploying to production.
 Never `kubectl apply` or `kubectl edit` a resource that Flux manages: Flux reverts
@@ -2159,7 +2159,7 @@ kubectl annotate --overwrite kustomization <app> -n flux-system \
   reconcile.fluxcd.io/requestedAt="$(date +%s)"
 ```
 
-<Callout type="idea" title="Suspending an app">
+<Callout type="tip" title="Suspending an app">
 
 To stop Flux from touching an app while you debug it by hand, **suspend** its
 Kustomization from the Web UI. Remember to **resume** it afterwards: a suspended
@@ -2325,7 +2325,7 @@ Production runs on a single VM, **`k3s01`**, created by Terraform
 | Kubernetes | K3s, single server node, pinned version (see `ansible/vars/main.yml`) |
 | Admin user | `pnadmin` |
 
-<Callout type="info" title="ARM64">
+<Callout type="important" title="ARM64">
 
 The node is ARM64. Every image we deploy must have a `linux/arm64` variant,
 otherwise the pod fails with `exec format error`. Our GitHub workflows publish
@@ -2419,7 +2419,7 @@ checkout on the VM and run:
 ./scripts/provision-and-verify.sh inventories/local/hosts.yml
 ```
 
-<Callout type="error">
+<Callout type="danger">
 
 Never copy a private SSH key or a secret value into the repository or into Azure
 Run Command parameters.
@@ -2444,7 +2444,7 @@ every Flux path and the manifest tests in `tests/`. It does **not** touch the VM
 The Flux Operator is upgraded the same way (`flux_operator_*` and
 `flux_distribution_version`).
 
-<Callout type="warning" title="Rebuilding the node">
+<Callout type="caution" title="Rebuilding the node">
 
 The workload identity trust relies on the cluster's service-account signing key,
 whose public part is committed in Terraform
@@ -2465,7 +2465,7 @@ using a declarative configuration language. This means you describe the desired
 state of the infrastructure, and Terraform takes care of creating and updating
 the resources to match that state.
 
-<Callout type="info">
+<Callout type="important">
 
 This documentation assumes you already have the Terraform CLI installed on your
 local machine. If you need help setting up Terraform, please refer to the
@@ -2515,7 +2515,7 @@ Terraform operates through a simple yet powerful workflow:
 2. **Plan:** Running `terraform plan` generates an execution plan, showing you the changes Terraform will make to achieve the desired state.
 3. **Apply:** Executing `terraform apply` implements the changes, creating or updating the infrastructure accordingly.
 
-<Callout type="error">
+<Callout type="danger">
 
 Running Terraform commands can modify the cloud infrastructure.
 
@@ -2690,7 +2690,7 @@ consistency and control.
    automatically. This workflow calculates the estimated cost impact of your
    changes and posts a report in the pull request comments, so you can review
    any potential cost implications before merging.
-   <Callout type="idea">
+   <Callout type="tip">
 
    If you want to run Infracost locally, you can install it by following the
    [official documentation](https://www.infracost.io/docs/).
@@ -2717,7 +2717,7 @@ Running Terraform at the repository root does nothing useful.
 
 - **`terraform init`**  
   Initializes the working directory containing the Terraform configuration files.
-  <Callout type="idea">
+  <Callout type="tip">
 
   This has to be run as soon as you clone the repository or when you pull changes
   that include new modules or providers. Locally, add
@@ -2735,7 +2735,7 @@ Running Terraform at the repository root does nothing useful.
 - **`terraform destroy`**  
   Destroys the resources managed by Terraform, useful for tearing down test environments or decommissioning infrastructure.
 
-  <Callout type="error">
+  <Callout type="danger">
 
   If you ever happen to be as much as tempted of using `terraform destroy`, you
   better be **SURE AS SHIT** about what you are doing. Never run it without
@@ -2831,7 +2831,7 @@ kubectl exec -n :pod-namespace: -it deploy/:deployment-name: -- /bin/sh
 this will open a shell inside a pod of that deployment (use `/bin/bash` if the image has it). <br/>
 Mind there is no `screen` installed by default but you can use `nohup`.
 
-<Callout type="warning">
+<Callout type="caution">
 
 Anything you change inside a pod is lost when the pod restarts, and Flux reverts changes made with `kubectl edit`. Make persistent changes in the [polinetwork-cd](https://github.com/polinetworkorg/polinetwork-cd) repository.
 
@@ -2900,7 +2900,7 @@ The [polinetwork-cd](https://github.com/polinetworkorg/polinetwork-cd) repositor
 
 If it's your first time accessing the infrastructure, you'll need to set up the tools and configure them.
 
-<Callout type="warning">
+<Callout type="caution">
 
 This tutorial assumes your account has the right permissions to access the infrastructure. If not, please contact the team.
 SSH access to the node is restricted to the **Direttivo** Entra ID group.
@@ -2941,7 +2941,7 @@ There is no kubeconfig to download: you SSH into the node and run `kubectl` ther
 
 - To check if everything is working, run `k3s kubectl get pods -n <namespace>`. You should see a list of pods.
 
-<Callout type="idea">
+<Callout type="tip">
 
 `pnadmin` is in the `k3s-admin` group, which can read the K3s kubeconfig, so
 `k3s kubectl` works without `sudo`. Add an alias to save some typing:
@@ -2963,7 +2963,7 @@ polinetwork-cd repository (e.g. `web`, `backend`, `postgres`). Run
 
 </Callout>
 
-<Callout type="error" title="Break-glass access">
+<Callout type="danger" title="Break-glass access">
 
 If Cloudflare is down or the tunnel is broken, you can still reach the VM through
 **Azure Run Command** or the **Serial Console** in the Azure portal (VM `k3s01`,
@@ -3011,7 +3011,7 @@ ssh -L 5432:localhost:5432 pnadmin@10.43.1.4 \
 
 Keep the command running while you use the connection, and stop it with `Ctrl+C`.
 
-<Callout type="idea">
+<Callout type="tip">
 
 Run `kubectl get svc -n <namespace>` on the node to find service names and ports.
 You can use the same template to connect to other services.

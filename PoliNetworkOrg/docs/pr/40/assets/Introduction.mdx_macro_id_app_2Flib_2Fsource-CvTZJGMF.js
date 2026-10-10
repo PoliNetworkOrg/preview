@@ -35,7 +35,7 @@ Until October 2026 we ran on AKS (Azure Kubernetes Service). K3s gives us the
 same Kubernetes API on one VM that we fully control and size ourselves, and it
 drops our dependency on AKS-specific add-ons (Azure CSI drivers, Longhorn, ArgoCD).
 
-<Callout type="info" title="Legacy AKS">
+<Callout type="note" title="Legacy AKS">
 
 The AKS cluster \`aks-polinetwork\` is still defined in the \`environments/legacy\`
 Terraform root, but no production workload runs on it anymore.
@@ -46,7 +46,7 @@ If you find instructions mentioning \`az aks get-credentials\`, ArgoCD,
 
 ## About this documentation [#about-this-documentation]
 
-<Callout type="info">
+<Callout type="important">
 
 Most of the docs explain procedures with \`kubectl\`, which you run on the K3s node
 over SSH, and with the Azure CLI, which you use for Key Vault secrets.
@@ -98,12 +98,12 @@ per-application resource limits. Flux keeps the cluster in sync with Git, so the
 Until October 2026 we ran on AKS (Azure Kubernetes Service). K3s gives us the
 same Kubernetes API on one VM that we fully control and size ourselves, and it
 drops our dependency on AKS-specific add-ons (Azure CSI drivers, Longhorn, ArgoCD).`}),`
-`,(0,n.jsx)(r,{type:`info`,title:`Legacy AKS`,children:(0,n.jsxs)(t.p,{children:[`The AKS cluster `,(0,n.jsx)(t.code,{children:`aks-polinetwork`}),` is still defined in the `,(0,n.jsx)(t.code,{children:`environments/legacy`}),`
+`,(0,n.jsx)(r,{type:`note`,title:`Legacy AKS`,children:(0,n.jsxs)(t.p,{children:[`The AKS cluster `,(0,n.jsx)(t.code,{children:`aks-polinetwork`}),` is still defined in the `,(0,n.jsx)(t.code,{children:`environments/legacy`}),`
 Terraform root, but no production workload runs on it anymore.
 If you find instructions mentioning `,(0,n.jsx)(t.code,{children:`az aks get-credentials`}),`, ArgoCD,
 `,(0,n.jsx)(t.code,{children:`SecretProviderClass`}),` or Longhorn (e.g. in old READMEs), they refer to the AKS setup.`]})}),`
 `,(0,n.jsx)(t.h2,{id:`about-this-documentation`,children:`About this documentation`}),`
-`,(0,n.jsx)(r,{type:`info`,children:(0,n.jsxs)(t.p,{children:[`Most of the docs explain procedures with `,(0,n.jsx)(t.code,{children:`kubectl`}),`, which you run on the K3s node
+`,(0,n.jsx)(r,{type:`important`,children:(0,n.jsxs)(t.p,{children:[`Most of the docs explain procedures with `,(0,n.jsx)(t.code,{children:`kubectl`}),`, which you run on the K3s node
 over SSH, and with the Azure CLI, which you use for Key Vault secrets.
 Make sure to `,(0,n.jsx)(t.a,{href:`/docs/infrastructure/getting-started/setup`,children:`set up your access`}),` to follow along.`]})}),`
 `,(0,n.jsxs)(t.p,{children:[`The best place to start is going through the `,(0,n.jsx)(t.a,{href:`/docs/infrastructure/getting-started/setup`,children:`Getting Started`}),` section to get a high level overview of how things are organized.`,(0,n.jsx)(t.br,{}),`

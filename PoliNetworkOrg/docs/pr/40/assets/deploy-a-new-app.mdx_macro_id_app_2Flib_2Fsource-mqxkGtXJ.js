@@ -10,7 +10,7 @@ You don't deploy from your machine: you open a PR, and once it's merged into \`m
 Flux applies it.  
 Check [minikube](https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinary+download) or [K3s](https://docs.k3s.io/quick-start) to run a k8s cluster on your machine for testing purposes.
 
-<Callout type="info" title="CD">
+<Callout type="note" title="CD">
 
 To deploy our applications, we use [Flux](https://fluxcd.io/flux/) syncing the
 \`clusters/k3s\` folder of the \`main\` branch of
@@ -29,7 +29,7 @@ For more info, check out [Flux](/docs/infrastructure/getting-started/cloud-infra
 5. Open a PR into polinetwork-cd, wait for CI, merge
 6. Monitor the deploy on the [Flux Web UI](https://flux.polinetwork.org)
 
-<Callout type="info" title="ARM64 images">
+<Callout type="important" title="ARM64 images">
 
 The node is ARM64. An image built only for \`amd64\` can't run there, and the pod fails
 with \`exec format error\`. Build a multi-arch image (see the
@@ -325,7 +325,7 @@ spec:
             digest: << inputs.<app>_image.digest | quote >>
 \`\`\`
 
-<Callout type="warning" title="Input names">
+<Callout type="caution" title="Input names">
 
 The inputs are named after the provider, with hyphens turned into underscores:
 the provider \`bot-ts-image\` becomes \`inputs.bot_ts_image\`.
@@ -397,7 +397,7 @@ are possible too, through a Flux `,(0,n.jsx)(t.code,{children:`HelmRelease`}),` 
 `,(0,n.jsxs)(t.p,{children:[`You don't deploy from your machine: you open a PR, and once it's merged into `,(0,n.jsx)(t.code,{children:`main`}),`,
 Flux applies it.`,(0,n.jsx)(t.br,{}),`
 `,`Check `,(0,n.jsx)(t.a,{href:`https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinary+download`,children:`minikube`}),` or `,(0,n.jsx)(t.a,{href:`https://docs.k3s.io/quick-start`,children:`K3s`}),` to run a k8s cluster on your machine for testing purposes.`]}),`
-`,(0,n.jsxs)(r,{type:`info`,title:`CD`,children:[(0,n.jsxs)(t.p,{children:[`To deploy our applications, we use `,(0,n.jsx)(t.a,{href:`https://fluxcd.io/flux/`,children:`Flux`}),` syncing the
+`,(0,n.jsxs)(r,{type:`note`,title:`CD`,children:[(0,n.jsxs)(t.p,{children:[`To deploy our applications, we use `,(0,n.jsx)(t.a,{href:`https://fluxcd.io/flux/`,children:`Flux`}),` syncing the
 `,(0,n.jsx)(t.code,{children:`clusters/k3s`}),` folder of the `,(0,n.jsx)(t.code,{children:`main`}),` branch of
 `,(0,n.jsx)(t.a,{href:`https://github.com/PoliNetworkOrg/polinetwork-cd/`,children:`polinetwork-cd`}),`.`]}),(0,n.jsxs)(t.p,{children:[`For more info, check out `,(0,n.jsx)(t.a,{href:`/docs/infrastructure/getting-started/cloud-infrastructure/flux`,children:`Flux`}),`.`]})]}),`
 `,(0,n.jsx)(t.h2,{id:`procedure`,children:`Procedure`}),`
@@ -409,7 +409,7 @@ Flux applies it.`,(0,n.jsx)(t.br,{}),`
 `,(0,n.jsx)(t.li,{children:`Open a PR into polinetwork-cd, wait for CI, merge`}),`
 `,(0,n.jsxs)(t.li,{children:[`Monitor the deploy on the `,(0,n.jsx)(t.a,{href:`https://flux.polinetwork.org`,children:`Flux Web UI`})]}),`
 `]}),`
-`,(0,n.jsx)(r,{type:`info`,title:`ARM64 images`,children:(0,n.jsxs)(t.p,{children:[`The node is ARM64. An image built only for `,(0,n.jsx)(t.code,{children:`amd64`}),` can't run there, and the pod fails
+`,(0,n.jsx)(r,{type:`important`,title:`ARM64 images`,children:(0,n.jsxs)(t.p,{children:[`The node is ARM64. An image built only for `,(0,n.jsx)(t.code,{children:`amd64`}),` can't run there, and the pod fails
 with `,(0,n.jsx)(t.code,{children:`exec format error`}),`. Build a multi-arch image (see the
 `,(0,n.jsx)(t.a,{href:`https://github.com/PoliNetworkOrg/web/blob/main/.github/workflows/docker.yml`,children:`web workflow`}),`
 for an example), or check that the third-party image you use publishes `,(0,n.jsx)(t.code,{children:`linux/arm64`}),`.`]})}),`
@@ -647,7 +647,7 @@ same Kustomization, plus an `,(0,n.jsx)(t.code,{children:`images`}),` override w
 `,(0,n.jsxs)(t.span,{className:`line diff add`,children:[(0,n.jsx)(t.span,{style:{"--shiki-light":`#24292E`,"--shiki-dark":`#E1E4E8`},children:`          - `}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#22863A`,"--shiki-dark":`#85E89D`},children:`name`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#24292E`,"--shiki-dark":`#E1E4E8`},children:`: `}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:`ghcr.io/polinetworkorg/<image>`})]}),`
 `,(0,n.jsxs)(t.span,{className:`line diff add`,children:[(0,n.jsx)(t.span,{style:{"--shiki-light":`#22863A`,"--shiki-dark":`#85E89D`},children:`            newTag`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#24292E`,"--shiki-dark":`#E1E4E8`},children:`: `}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:`<< inputs.<app>_image.tag | quote >>`})]}),`
 `,(0,n.jsxs)(t.span,{className:`line diff add`,children:[(0,n.jsx)(t.span,{style:{"--shiki-light":`#22863A`,"--shiki-dark":`#85E89D`},children:`            digest`}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#24292E`,"--shiki-dark":`#E1E4E8`},children:`: `}),(0,n.jsx)(t.span,{style:{"--shiki-light":`#032F62`,"--shiki-dark":`#9ECBFF`},children:`<< inputs.<app>_image.digest | quote >>`})]})]})})}),`
-`,(0,n.jsx)(r,{type:`warning`,title:`Input names`,children:(0,n.jsxs)(t.p,{children:[`The inputs are named after the provider, with hyphens turned into underscores:
+`,(0,n.jsx)(r,{type:`caution`,title:`Input names`,children:(0,n.jsxs)(t.p,{children:[`The inputs are named after the provider, with hyphens turned into underscores:
 the provider `,(0,n.jsx)(t.code,{children:`bot-ts-image`}),` becomes `,(0,n.jsx)(t.code,{children:`inputs.bot_ts_image`}),`.`]})}),`
 `,(0,n.jsxs)(t.p,{children:[`In `,(0,n.jsx)(t.code,{children:`deployment.yaml`}),`, keep `,(0,n.jsx)(t.code,{children:`image: ghcr.io/polinetworkorg/<image>:latest`}),`: the `,(0,n.jsx)(t.code,{children:`name`}),`
 under `,(0,n.jsx)(t.code,{children:`images`}),` must match it exactly, and Flux replaces it with the pinned digest.
