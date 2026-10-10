@@ -3,7 +3,7 @@ import{i as e}from"./rolldown-runtime-Dd_uD5pT.js";import{t}from"./jsx-runtime-D
 <Callout type="caution">
 
 This tutorial assumes your account has the right permissions to access the infrastructure. If not, please contact the team.
-SSH access to the node is restricted to the **Direttivo** Entra ID group.
+SSH access to the node is restricted to the **IT Lead** group.
 
 </Callout>
 
@@ -118,7 +118,7 @@ You can use the same template to connect to other services.
 
 </Callout>
 `,a={contents:[{heading:void 0,content:`If it's your first time accessing the infrastructure, you'll need to set up the tools and configure them.`},{heading:void 0,content:`This tutorial assumes your account has the right permissions to access the infrastructure. If not, please contact the team.
-SSH access to the node is restricted to the **Direttivo** Entra ID group.`},{heading:`how-access-works`,content:"The K3s node `k3s01` has **no public IP**. Its private address is `10.43.1.4`,\ninside the Azure VNet `vnet-k3s`, and the Azure firewall (NSG) denies all inbound\ntraffic. Nothing reaches the VM directly from the Internet:"},{heading:`how-access-works`,content:"websites reach the cluster through a **Cloudflare Tunnel** (an outbound connection\nopened by `cloudflared` pods running in the cluster);"},{heading:`how-access-works`,content:`people reach the VM through **Cloudflare WARP**, which routes \`10.43.1.4\` through
+SSH access to the node is restricted to the **IT Lead** group.`},{heading:`how-access-works`,content:"The K3s node `k3s01` has **no public IP**. Its private address is `10.43.1.4`,\ninside the Azure VNet `vnet-k3s`, and the Azure firewall (NSG) denies all inbound\ntraffic. Nothing reaches the VM directly from the Internet:"},{heading:`how-access-works`,content:"websites reach the cluster through a **Cloudflare Tunnel** (an outbound connection\nopened by `cloudflared` pods running in the cluster);"},{heading:`how-access-works`,content:`people reach the VM through **Cloudflare WARP**, which routes \`10.43.1.4\` through
 the same tunnel, and **Cloudflare Access for Infrastructure**, which signs a
 short-lived SSH certificate after you log in with your PoliNetwork account.`},{heading:`how-access-works`,content:"There is no kubeconfig to download: you SSH into the node and run `kubectl` there."},{heading:`cloudflare-warp--ssh`,content:`Install the Cloudflare WARP client.`},{heading:`cloudflare-warp--ssh`,content:`Enroll it in PoliNetwork's Cloudflare Zero Trust organization
 (*Preferences → Account → Login to Cloudflare Zero Trust*) and log in with your
@@ -135,7 +135,7 @@ resources.`},{heading:`azure-cli`,content:`Download and install the Azure CLI.`}
 need two hops: \`kubectl port-forward\` on the node, and an SSH tunnel from your
 machine to the node. You can do both with one command:`},{heading:`port-forwarding`,content:"For example, to reach PostgreSQL on `localhost:5432`:"},{heading:`port-forwarding`,content:"Keep the command running while you use the connection, and stop it with `Ctrl+C`."},{heading:`port-forwarding`,content:"Run `kubectl get svc -n <namespace>` on the node to find service names and ports.\nYou can use the same template to connect to other services."}],headings:[{id:`how-access-works`,content:`How access works`},{id:`cloudflare-warp--ssh`,content:`Cloudflare WARP & SSH`},{id:`azure-cli`,content:`Azure CLI`},{id:`web-dashboards`,content:`Web dashboards`},{id:`port-forwarding`,content:`Port Forwarding`}]},o=[{depth:2,url:`#how-access-works`,title:(0,n.jsx)(n.Fragment,{children:`How access works`})},{depth:2,url:`#cloudflare-warp--ssh`,title:(0,n.jsx)(n.Fragment,{children:`Cloudflare WARP & SSH`})},{depth:2,url:`#azure-cli`,title:(0,n.jsx)(n.Fragment,{children:`Azure CLI`})},{depth:2,url:`#web-dashboards`,title:(0,n.jsx)(n.Fragment,{children:`Web dashboards`})},{depth:2,url:`#port-forwarding`,title:(0,n.jsx)(n.Fragment,{children:`Port Forwarding`})}];function s(e){let t={a:`a`,code:`code`,em:`em`,h2:`h2`,li:`li`,p:`p`,pre:`pre`,span:`span`,strong:`strong`,table:`table`,tbody:`tbody`,td:`td`,th:`th`,thead:`thead`,tr:`tr`,ul:`ul`,...e.components},{Callout:r}=t;return r||l(`Callout`,!0),(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(t.p,{children:`If it's your first time accessing the infrastructure, you'll need to set up the tools and configure them.`}),`
 `,(0,n.jsx)(r,{type:`caution`,children:(0,n.jsxs)(t.p,{children:[`This tutorial assumes your account has the right permissions to access the infrastructure. If not, please contact the team.
-SSH access to the node is restricted to the `,(0,n.jsx)(t.strong,{children:`Direttivo`}),` Entra ID group.`]})}),`
+SSH access to the node is restricted to the `,(0,n.jsx)(t.strong,{children:`IT Lead`}),` group.`]})}),`
 `,(0,n.jsx)(t.h2,{id:`how-access-works`,children:`How access works`}),`
 `,(0,n.jsxs)(t.p,{children:[`The K3s node `,(0,n.jsx)(t.code,{children:`k3s01`}),` has `,(0,n.jsx)(t.strong,{children:`no public IP`}),`. Its private address is `,(0,n.jsx)(t.code,{children:`10.43.1.4`}),`,
 inside the Azure VNet `,(0,n.jsx)(t.code,{children:`vnet-k3s`}),`, and the Azure firewall (NSG) denies all inbound

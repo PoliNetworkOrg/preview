@@ -2391,7 +2391,7 @@ After that, Flux takes over everything inside the cluster (see [Flux](/docs/infr
 
 You rarely need this: day-to-day changes go through Flux. Run Ansible when you
 change something under `ansible/` (e.g. a K3s upgrade or a new backup target).
-Only the Direttivo has access to the node.
+Only the IT Lead group has access to the node.
 
 </Callout>
 
@@ -2903,7 +2903,7 @@ If it's your first time accessing the infrastructure, you'll need to set up the 
 <Callout type="caution">
 
 This tutorial assumes your account has the right permissions to access the infrastructure. If not, please contact the team.
-SSH access to the node is restricted to the **Direttivo** Entra ID group.
+SSH access to the node is restricted to the **IT Lead** group.
 
 </Callout>
 
